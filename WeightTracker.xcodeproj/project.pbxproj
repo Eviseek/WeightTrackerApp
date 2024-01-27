@@ -14,6 +14,9 @@
 		DDA76F712B657F67000EDFC0 /* WeightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F702B657F67000EDFC0 /* WeightTrackerTests.swift */; };
 		DDA76F7B2B657F67000EDFC0 /* WeightTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F7A2B657F67000EDFC0 /* WeightTrackerUITests.swift */; };
 		DDA76F7D2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F7C2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift */; };
+		DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F892B65ADA0000EDFC0 /* WeightData.swift */; };
+		DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */; };
+		DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F942B65B20B000EDFC0 /* ChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		DDA76F5C2B657F65000EDFC0 /* WeightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerApp.swift; sourceTree = "<group>"; };
-		DDA76F612B657F65000EDFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightTrackerApp.swift; path = WeightTracker/WeightTrackerApp.swift; sourceTree = SOURCE_ROOT; };
+		DDA76F612B657F65000EDFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = WeightTracker/View/MainScreen/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F632B657F67000EDFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDA76F662B657F67000EDFC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDA76F6C2B657F67000EDFC0 /* WeightTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,9 @@
 		DDA76F762B657F67000EDFC0 /* WeightTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA76F7A2B657F67000EDFC0 /* WeightTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITests.swift; sourceTree = "<group>"; };
 		DDA76F7C2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DDA76F892B65ADA0000EDFC0 /* WeightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightData.swift; path = WeightTracker/Model/WeightData.swift; sourceTree = SOURCE_ROOT; };
+		DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightDataHandler.swift; path = WeightTracker/View/MainScreen/WeightDataHandler.swift; sourceTree = SOURCE_ROOT; };
+		DDA76F942B65B20B000EDFC0 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA76F5E2B657F65000EDFC0 /* WeightTracker */,
+				DDA76F632B657F67000EDFC0 /* Assets.xcassets */,
+				DDA76F652B657F67000EDFC0 /* Preview Content */,
 				DDA76F6F2B657F67000EDFC0 /* WeightTrackerTests */,
 				DDA76F792B657F67000EDFC0 /* WeightTrackerUITests */,
 				DDA76F5D2B657F65000EDFC0 /* Products */,
@@ -95,12 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */,
-				DDA76F612B657F65000EDFC0 /* ContentView.swift */,
-				DDA76F632B657F67000EDFC0 /* Assets.xcassets */,
-				DDA76F652B657F67000EDFC0 /* Preview Content */,
+				DDA76F8C2B65AED2000EDFC0 /* View */,
+				DDA76F8D2B65AEE4000EDFC0 /* Model */,
 			);
 			path = WeightTracker;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		DDA76F652B657F67000EDFC0 /* Preview Content */ = {
 			isa = PBXGroup;
@@ -126,6 +133,35 @@
 			);
 			path = WeightTrackerUITests;
 			sourceTree = "<group>";
+		};
+		DDA76F8C2B65AED2000EDFC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDA76F912B65AFA8000EDFC0 /* MainScreen */,
+			);
+			name = View;
+			path = WeightTracker/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		DDA76F8D2B65AEE4000EDFC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDA76F892B65ADA0000EDFC0 /* WeightData.swift */,
+			);
+			name = Model;
+			path = WeightTracker/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		DDA76F912B65AFA8000EDFC0 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDA76F612B657F65000EDFC0 /* ContentView.swift */,
+				DDA76F942B65B20B000EDFC0 /* ChartView.swift */,
+				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
+			);
+			name = MainScreen;
+			path = WeightTracker/View/MainScreen;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -257,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */,
 				DDA76F622B657F65000EDFC0 /* ContentView.swift in Sources */,
+				DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */,
+				DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */,
 				DDA76F602B657F65000EDFC0 /* WeightTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +455,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeightTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = X55V6FTF2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -445,7 +484,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeightTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = X55V6FTF2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
