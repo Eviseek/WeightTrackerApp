@@ -17,6 +17,8 @@
 		DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F892B65ADA0000EDFC0 /* WeightData.swift */; };
 		DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */; };
 		DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F942B65B20B000EDFC0 /* ChartView.swift */; };
+		DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */; };
+		DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		DDA76F892B65ADA0000EDFC0 /* WeightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightData.swift; path = WeightTracker/Model/WeightData.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightDataHandler.swift; path = WeightTracker/View/MainScreen/WeightDataHandler.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F942B65B20B000EDFC0 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
+		DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				DDA76F612B657F65000EDFC0 /* ContentView.swift */,
 				DDA76F942B65B20B000EDFC0 /* ChartView.swift */,
 				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
+				DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */,
+				DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */,
 			);
 			name = MainScreen;
 			path = WeightTracker/View/MainScreen;
@@ -293,6 +299,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */,
+				DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */,
 				DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */,
 				DDA76F622B657F65000EDFC0 /* ContentView.swift in Sources */,
 				DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */,

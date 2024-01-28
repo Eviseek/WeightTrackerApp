@@ -13,7 +13,9 @@ struct ChartView: View {
     @Binding var toggleCheckButton: Bool
     @Binding var weight: String
     
-    @Observable
+    @ObservedObject var weightDataHandler: WeightDataHandler
+    
+    @Binding var rawSelectedDate: String?
     
     var body: some View {
         //vstack with graph
@@ -22,6 +24,7 @@ struct ChartView: View {
                 Text("Last 3 Months")
                     .font(.subheadline)
                     .bold()
+                    .padding(.top, 10)
                     .padding(.leading, 5)
                 
                 Spacer()
@@ -29,6 +32,7 @@ struct ChartView: View {
                 if toggleCheckButton == true {
                     Button {
                         weightDataHandler.saveNewWeight(weight: weight)
+                        print("toggle")
                         toggleCheckButton.toggle()
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
@@ -42,11 +46,11 @@ struct ChartView: View {
                 }
             }
             Chart {
-                ForEach(weightDataHandler.data) { dataPoint in
+                ForEach(weightDataHandler.weightData) { dataPoint in
                     LineMark(x: .value("Date", dataPoint.date), y: .value("Weight", dataPoint.weight))
                         .foregroundStyle(.pink)
                         .lineStyle(.init(lineWidth: 2))
-                        .interpolationMethod(.cardinal)
+                        .interpolationMethod(.catmullRom)
                         .symbol {
                             Circle()
                                 .fill(.pink)
@@ -54,25 +58,24 @@ struct ChartView: View {
                         }
                 }
             }
-            
             .chartYAxis {
                 AxisMarks(preset: .extended, position: .leading, values: .stride(by: 0.7))
             }
-            .chartYScale(domain: (67.1-0.7)...(69.8+0.7))
+            .chartYScale(domain: weightDataHandler.chartDomainRange)
             .chartXAxis(.hidden)
             .frame(height: 350)
             .padding(.vertical, 20)
             .padding(.horizontal, 10)
         }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.purple)
-            .padding(.horizontal, 10)
-        
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.white)
+        .padding(.horizontal, 10)
+    
     }
 }
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(toggleCheckButton: .constant(false), weight: .constant(""))
+        ChartView(toggleCheckButton: .constant(false), weight: .constant(""), weightDataHandler: WeightDataHandler(), rawSelectedDate: .constant(""))
     }
 }

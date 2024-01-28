@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var weight = ""
     @State private var toggleCheckButton = false
     
+    @StateObject private var weightDataHandler = WeightDataHandler()
+    
     enum Field: Hashable {
         case myField
     }
@@ -33,10 +35,10 @@ struct ContentView: View {
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.trailing)
 
-//                        .onTapGesture {
-//                            focusedField = nil
-//                            toggleCheckButton.toggle()
-//                        }
+                        .onTapGesture {
+                           // focusedField = nil
+                            toggleCheckButton.toggle()
+                        }
                     Text("kg")
                         .font(.caption)
                 }
@@ -46,38 +48,45 @@ struct ContentView: View {
                 .padding(.trailing, 10)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .background(Color.red)
+            .background(Color.white)
             .padding(.horizontal, 10)
             
-            ChartView(toggleCheckButton: $toggleCheckButton, weight: $weight)
+            ChartView(toggleCheckButton: $toggleCheckButton, weight: $weight, weightDataHandler: weightDataHandler, rawSelectedDate: .constant(""))
             
-            VStack {
-                Text("Goal")
-                    .font(.headline)
-                    .bold()
-                HStack(spacing: 3) {
-                    Text("68")
-                        .font(.subheadline)
+            Button {
+                
+            } label: {
+                VStack {
+                    Text("Goal")
+                        .font(.headline)
                         .bold()
-                    Text("kg")
-                        .font(.subheadline)
+                    HStack(spacing: 3) {
+                        Text("68")
+                            .font(.subheadline)
+                            .bold()
+                        Text("kg")
+                            .font(.subheadline)
+                    }
+                    HStack(spacing: 3) {
+                        Text("0.1")
+                            .font(.caption)
+                            .bold()
+                        Text("kgs to go")
+                            .font(.caption)
+                    }
                 }
-                HStack(spacing: 3) {
-                    Text("0.1")
-                        .font(.caption)
-                        .bold()
-                    Text("kgs to go")
-                        .font(.caption)
-                }
+                .foregroundColor(.black)
+                .padding(.vertical, 5)
+                .frame(maxWidth: .infinity)
+                .background(.white)
+                .padding(.horizontal, 10)
             }
-            .padding(.vertical, 5)
-            .frame(maxWidth: .infinity)
-            .background(.red)
-            .padding(.horizontal, 10)
             
           //  Spacer()
             
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemGray6))
     }
 }
 
