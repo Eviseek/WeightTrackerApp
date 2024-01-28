@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State private var weight = ""
     @State private var toggleCheckButton = false
+    @State private var showingSheet = false
     
     @StateObject private var weightDataHandler = WeightDataHandler()
     
@@ -54,27 +55,30 @@ struct ContentView: View {
             ChartView(toggleCheckButton: $toggleCheckButton, weight: $weight, weightDataHandler: weightDataHandler, rawSelectedDate: .constant(""))
             
             Button {
-                
+                showingSheet.toggle()
             } label: {
                 VStack {
                     Text("Goal")
                         .font(.headline)
                         .bold()
                     HStack(spacing: 3) {
-                        Text("68")
+                        Text(weightDataHandler.weightGoal)
                             .font(.subheadline)
                             .bold()
                         Text("kg")
                             .font(.subheadline)
                     }
                     HStack(spacing: 3) {
-                        Text("0.1")
+                        Text(weightDataHandler.weightToGoal)
                             .font(.caption)
                             .bold()
                         Text("kgs to go")
                             .font(.caption)
                     }
                 }
+                .sheet(isPresented: $showingSheet, content: {
+                    GoalWeightView(weightDataHandler: weightDataHandler)
+                })
                 .foregroundColor(.black)
                 .padding(.vertical, 5)
                 .frame(maxWidth: .infinity)

@@ -14,10 +14,14 @@ class WeightDataHandler: ObservableObject {
     var weightData = WeightData.TEST_DATA
     //@Published var weightData = [WeightData]()
     @Published var chartDomainRange = 50.0...55.0
+    @Published var weightGoal = "0.0"
+    @Published var weightToGoal = "0.0"
     
     init() {
        // defaults.removeObject(forKey: "weightData")
        // weightData = getWeightData()
+        weightGoal = getWeightGoal()
+        updateWeightToGoal(latestWeight: nil)
         setChartDomainRange()
     }
     
@@ -38,6 +42,30 @@ class WeightDataHandler: ObservableObject {
         }
     }
     
+    private func updateWeightToGoal(latestWeight: Double?) {
+        
+        var myLatestWeight = 0.0
+        
+        if latestWeight == nil {
+            myLatestWeight = weightData[weightData.count-1].weight
+        } else {
+            myLatestWeight = latestWeight!
+        }
+        
+        if let weightGoal = Double(weightGoal) {
+            let weightLeft = myLatestWeight - weightGoal
+//            print("my latest weight \(myLatestWeight)")
+//            print("my goal \(weightGoal)")
+            weightToGoal = String(format: "%.2f", abs(weightLeft)) // absolute value to string
+        }
+    }
+    
+    func saveNewGoal(goal: String) {
+        weightGoal = goal
+        defaults.set(goal, forKey: "weightGoal")
+        updateWeightToGoal(latestWeight: nil)
+    }
+    
     func saveNewWeight(weight: String) {
         if let weight = Double(weight) {
             print("saving the weight")
@@ -49,6 +77,7 @@ class WeightDataHandler: ObservableObject {
 //            }
             setChartDomainRange()
             defaults.set(try! PropertyListEncoder().encode(weightData), forKey: "weightData")
+            updateWeightToGoal(latestWeight: weight)
             //defaults.setValue(realData, forKey: "weightData")
         }
     }
@@ -61,6 +90,10 @@ class WeightDataHandler: ObservableObject {
             return weightData
         }
         return [WeightData]()
+    }
+    
+    private func getWeightGoal() -> String {
+        return defaults.object(forKey: "weightGoal") as? String ?? "0.0"
     }
     
 }
