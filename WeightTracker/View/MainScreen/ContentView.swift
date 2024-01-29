@@ -52,7 +52,7 @@ struct ContentView: View {
             .background(Color.white)
             .padding(.horizontal, 10)
             
-            ChartView(toggleCheckButton: $toggleCheckButton, weight: $weight, weightDataHandler: weightDataHandler, rawSelectedDate: .constant(""))
+            ChartView(toggleCheckButton: $toggleCheckButton, weight: $weight, weightDataHandler: weightDataHandler, rawSelectedDate: "")
             
             Button {
                 showingSheet.toggle()

@@ -16,10 +16,11 @@ class WeightDataHandler: ObservableObject {
     @Published var chartDomainRange = 50.0...55.0
     @Published var weightGoal = "0.0"
     @Published var weightToGoal = "0.0"
+    @Published var selectedWeight = "0.0"
     
     init() {
-       // defaults.removeObject(forKey: "weightData")
-       // weightData = getWeightData()
+        // defaults.removeObject(forKey: "weightData")
+        // weightData = getWeightData()
         weightGoal = getWeightGoal()
         updateWeightToGoal(latestWeight: nil)
         setChartDomainRange()
@@ -54,8 +55,8 @@ class WeightDataHandler: ObservableObject {
         
         if let weightGoal = Double(weightGoal) {
             let weightLeft = myLatestWeight - weightGoal
-//            print("my latest weight \(myLatestWeight)")
-//            print("my goal \(weightGoal)")
+            //            print("my latest weight \(myLatestWeight)")
+            //            print("my goal \(weightGoal)")
             weightToGoal = String(format: "%.2f", abs(weightLeft)) // absolute value to string
         }
     }

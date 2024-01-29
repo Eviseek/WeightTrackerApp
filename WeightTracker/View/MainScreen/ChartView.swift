@@ -15,7 +15,26 @@ struct ChartView: View {
     
     @ObservedObject var weightDataHandler: WeightDataHandler
     
-    @Binding var rawSelectedDate: String?
+    @State var rawSelectedDate: String? = nil
+    
+    var selectedDateValue: String? {
+        if let rawSelectedDate {
+            if let indexOfDate = weightDataHandler.weightData.firstIndex(where: { $0.date == rawSelectedDate }) {
+                return String(weightDataHandler.weightData[indexOfDate].weight)
+            }
+        } else {
+            return nil
+        }
+        return nil
+    }
+//
+//    var selectedDate: String? {
+//      guard let rawSelectedDate else { return nil }
+//        return weightDataHandler.weightData.first?.date.first(where: {
+//            let endOfDay = endOfDay(for: $0)
+//        return ($0.day ... endOfDay).contains(rawSelectedDate)
+//      })?.day
+//    }
     
     var body: some View {
         //vstack with graph
@@ -65,31 +84,37 @@ struct ChartView: View {
                         }
                     }
                 }
-                RuleMark(x: .value("Date", "1.1.2023"))
-                            .foregroundStyle(.gray)
-                            .offset(yStart: -10)
-                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                            .annotation(position: .trailing, alignment: .leading) {
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 100, height: 35)
-                                        .foregroundColor(Color(.systemGray5).opacity(0.5))
-                                    VStack {
-                                        Text("1.1.2023")
-                                            .font(.caption)
-                                        Text("68 kg")
+                if let rawSelectedDate {
+                    RuleMark(x: .value("Date", rawSelectedDate))
+                        .foregroundStyle(.gray)
+                        .offset(yStart: -10)
+                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                        .annotation(position: .trailing, alignment: .leading) {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 100, height: 35)
+                                    .foregroundColor(Color(.systemGray5).opacity(0.5))
+                                VStack {
+                                    Text(rawSelectedDate)
+                                        .font(.caption)
+                                    if let selectedDateValue {
+                                        Text("\(selectedDateValue) kg")
                                             .bold()
                                             .font(.caption)
                                     }
                                 }
                             }
+                        }
+                }
+
             }
+            .chartXSelection(value: $rawSelectedDate)
             .chartScrollableAxes(.horizontal)
             .chartYAxis {
                 AxisMarks(preset: .extended, position: .leading)
             }
             .chartYScale(domain: weightDataHandler.chartDomainRange)
-           // .chartXAxis(.hidden)
+          //  .chartXAxis(.hidden)
             .frame(height: 350)
             .padding(.vertical, 20)
             .padding(.horizontal, 10)
@@ -103,6 +128,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(toggleCheckButton: .constant(false), weight: .constant(""), weightDataHandler: WeightDataHandler(), rawSelectedDate: .constant(""))
+        ChartView(toggleCheckButton: .constant(false), weight: .constant(""), weightDataHandler: WeightDataHandler(), rawSelectedDate: "")
     }
 }
