@@ -22,7 +22,13 @@ extension WeightData {
         WeightData(date: "2.1.2023", weight: 67.1),
         WeightData(date: "3.1.2023", weight: 69.1),
         WeightData(date: "4.1.2023", weight: 69.8),
-        WeightData(date: "5.1.2023", weight: 68.8)
+        WeightData(date: "5.1.2023", weight: 68.8),
+        WeightData(date: "6.1.2023", weight: 69.8),
+        WeightData(date: "7.1.2023", weight: 67.8),
+        WeightData(date: "8.1.2023", weight: 69.8),
+        WeightData(date: "9.1.2023", weight: 68.3),
+        WeightData(date: "10.1.2023", weight: 69.1),
+        WeightData(date: "11.1.2023", weight: 68.9)
     ]
 
 }
