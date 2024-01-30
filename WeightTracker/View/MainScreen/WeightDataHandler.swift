@@ -19,6 +19,7 @@ class WeightDataHandler: ObservableObject {
     @Published var selectedWeight = "0.0"
     
     init() {
+        getLastMonthData()
         // defaults.removeObject(forKey: "weightData")
         // weightData = getWeightData()
         weightGoal = getWeightGoal()
@@ -70,12 +71,7 @@ class WeightDataHandler: ObservableObject {
     func saveNewWeight(weight: String) {
         if let weight = Double(weight) {
             print("saving the weight")
-            weightData.append(WeightData(date: dateFormatterHandler.convertDateToStr(date: Date()), weight: weight)) //TODO: change 1 to date
-//            if let encodedData = try PropertyListEncoder().encode(realData) {
-//                defaults.set(encodedData, forKey: "weightData")
-//            } else {
-//                print("!!!!!!!!!!! Something went wrong")
-//            }
+            weightData.append(WeightData(date: Date().convertToString(), weight: weight))
             setChartDomainRange()
             defaults.set(try! PropertyListEncoder().encode(weightData), forKey: "weightData")
             updateWeightToGoal(latestWeight: weight)
@@ -95,6 +91,27 @@ class WeightDataHandler: ObservableObject {
     
     private func getWeightGoal() -> String {
         return defaults.object(forKey: "weightGoal") as? String ?? "0.0"
+    }
+    
+    func getLastMonthData() -> [WeightData] {
+        
+        var data = [WeightData]()
+        let today = Date()
+        
+        if let monthAgo = (Calendar.current.date(byAdding: .day, value: -30, to: today)) {
+            var date = today
+            while date >= monthAgo {
+                print("date is \(date)")
+                date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
+                print("date string \(date.convertToString())")
+                if let weightData = weightData.first(where: { $0.date == date.convertToString() }) {
+                    print("my weight data is \(weightData)")
+                    data.append(weightData)
+                }
+            }
+            print("my new data array is: \(data)")
+        }
+        return data
     }
     
 }

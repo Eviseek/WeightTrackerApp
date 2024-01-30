@@ -17,6 +17,17 @@ struct ChartView: View {
     
     @State var rawSelectedDate: String? = nil
     
+    enum TimeInterval: String, CaseIterable, Identifiable {
+        case month = "Month"
+        case month3 = "3 Months"
+        case year = "Year"
+        
+        var id: Self { return self }
+        
+    }
+    
+    @State private var selectedTimeInterval = TimeInterval.month
+    
     var selectedDateValue: String? {
         if let rawSelectedDate {
             if let indexOfDate = weightDataHandler.weightData.firstIndex(where: { $0.date == rawSelectedDate }) {
@@ -27,24 +38,42 @@ struct ChartView: View {
         }
         return nil
     }
-//
+
 //    var selectedDate: String? {
 //      guard let rawSelectedDate else { return nil }
-//        return weightDataHandler.weightData.first?.date.first(where: {
+//        return weightDataHandler.weightData.first?.weight.first(where: {
 //            let endOfDay = endOfDay(for: $0)
-//        return ($0.day ... endOfDay).contains(rawSelectedDate)
+//            return ($0.day ... endOfDay).contains(rawSelectedDate)
 //      })?.day
 //    }
     
     var body: some View {
         //vstack with graph
         VStack() {
-            HStack {
-                Text("Last 3 Months")
-                    .font(.subheadline)
-                    .bold()
-                    .padding(.top, 10)
-                    .padding(.leading, 5)
+            
+            Picker(selection: $selectedTimeInterval) {
+                ForEach(TimeInterval.allCases) { interval in
+                    Text(interval.rawValue)
+                }
+            } label: {
+                Text("Time Interval for chart")
+            }
+            .pickerStyle(.segmented)
+            .padding(.vertical, 10)
+
+            
+            Group {
+                switch selectedTimeInterval {
+                case .month:
+                    Text("")
+                case .month3:
+                    Text("")
+                case .year:
+                    Text("")
+                }
+            }
+            
+            HStack { //TODO: delete hstack
                 
                 Spacer()
                 
@@ -65,7 +94,7 @@ struct ChartView: View {
                 //                }
             }
             Chart {
-                ForEach(weightDataHandler.weightData) { dataPoint in
+                ForEach(weightDataHandler.weightData, id: \.date) { dataPoint in
                     LineMark(
                         x: .value("Date", dataPoint.date),
                         y: .value("Weight", dataPoint.weight)
@@ -86,44 +115,56 @@ struct ChartView: View {
                 }
                 if let rawSelectedDate {
                     RuleMark(x: .value("Date", rawSelectedDate))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.black)
                         .offset(yStart: -10)
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                        .annotation(position: .trailing, alignment: .leading) {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 100, height: 35)
-                                    .foregroundColor(Color(.systemGray5).opacity(0.5))
-                                VStack {
-                                    Text(rawSelectedDate)
-                                        .font(.caption)
-                                    if let selectedDateValue {
-                                        Text("\(selectedDateValue) kg")
-                                            .bold()
-                                            .font(.caption)
-                                    }
-                                }
-                            }
+                        .zIndex(5)
+                        .lineStyle(StrokeStyle(lineWidth: 0.5, dash: [5]))
+                        .annotation(position: .trailing, alignment: .leading, spacing: 10, overflowResolution: .init(x: .fit(to: .chart), y: .disabled)) {
+                            selectionPopover
                         }
                 }
-
             }
             .chartXSelection(value: $rawSelectedDate)
-            .chartScrollableAxes(.horizontal)
             .chartYAxis {
                 AxisMarks(preset: .extended, position: .leading)
             }
+            .chartXAxis {
+                AxisMarks { _ in
+                    AxisGridLine().foregroundStyle(Color(.systemGray3))
+                }
+            }
             .chartYScale(domain: weightDataHandler.chartDomainRange)
-          //  .chartXAxis(.hidden)
-            .frame(height: 350)
+            .aspectRatio(contentMode: .fit)
             .padding(.vertical, 20)
             .padding(.horizontal, 10)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.white)
         .padding(.horizontal, 10)
+        .padding(.vertical, 50)
     
     }
+    
+    @ViewBuilder
+    var selectionPopover: some View {
+        ZStack {
+            Rectangle()
+                .frame(width: 100, height: 35)
+                .foregroundColor(Color(.systemGray5).opacity(0.8))
+            VStack {
+                if let rawSelectedDate {
+                    Text(rawSelectedDate.description)
+                        .font(.caption)
+                }
+                if let selectedDateValue {
+                    Text("\(selectedDateValue) kg")
+                        .bold()
+                        .font(.caption)
+                }
+            }
+        }
+    }
+    
 }
 
 struct ChartView_Previews: PreviewProvider {

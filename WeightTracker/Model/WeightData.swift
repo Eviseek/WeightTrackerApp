@@ -28,7 +28,25 @@ extension WeightData {
         WeightData(date: "8.1.2023", weight: 69.8),
         WeightData(date: "9.1.2023", weight: 68.3),
         WeightData(date: "10.1.2023", weight: 69.1),
-        WeightData(date: "11.1.2023", weight: 68.9)
+        WeightData(date: "11.1.2023", weight: 69.9),
+        WeightData(date: "12.1.2023", weight: 69.9),
+        WeightData(date: "13.1.2023", weight: 67.9),
+        WeightData(date: "14.1.2023", weight: 68.6),
+        WeightData(date: "15.1.2023", weight: 68.5),
+        WeightData(date: "16.1.2023", weight: 68.1),
+        WeightData(date: "17.1.2023", weight: 66.1),
+        WeightData(date: "18.1.2023", weight: 66.9),
+        WeightData(date: "19.1.2023", weight: 68.4),
+        WeightData(date: "20.1.2023", weight: 68.5),
+        WeightData(date: "21.1.2023", weight: 64.1),
+        WeightData(date: "22.1.2023", weight: 66.9),
+        WeightData(date: "23.1.2023", weight: 68.7),
+        WeightData(date: "24.1.2023", weight: 68.1),
+        WeightData(date: "25.1.2023", weight: 68.0),
+        WeightData(date: "26.1.2023", weight: 68.7),
+        WeightData(date: "27.1.2023", weight: 69.9),
+        WeightData(date: "28.1.2023", weight: 67.9),
+        WeightData(date: "29.1.2024", weight: 70.9)
     ]
 
 }
