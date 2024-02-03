@@ -18,13 +18,18 @@ class WeightDataHandler: ObservableObject {
     @Published var weightToGoal = "0.0"
     @Published var selectedWeight = "0.0"
     
+    @Published var lastMonthWeightData = [WeightData]()
+    @Published var last3MonthWeightData = [WeightData]()
+    @Published var customDurationWeightData = [WeightData]()
+    
     init() {
-        getLastMonthData()
+        lastMonthWeightData = getLastXMonthsData(numberOfMonths: 1).reversed()
+        last3MonthWeightData = getLastXMonthsData(numberOfMonths: 3).reversed()
         // defaults.removeObject(forKey: "weightData")
         // weightData = getWeightData()
         weightGoal = getWeightGoal()
         updateWeightToGoal(latestWeight: nil)
-        setChartDomainRange()
+        setChartDomainRange(weightData)
     }
     
     private var minWeightData: Double? {
@@ -35,8 +40,9 @@ class WeightDataHandler: ObservableObject {
         weightData.min {$0.weight > $1.weight}?.weight
     }
     
-    private func setChartDomainRange() {
-        if let minWeightData = minWeightData, let maxWeightData = maxWeightData {
+    private func setChartDomainRange(_ weightData: [WeightData]) {
+        
+        if let minWeightData = weightData.max(by: {$0.weight > $1.weight})?.weight, let maxWeightData = weightData.min(by: {$0.weight > $1.weight})?.weight {
             let lowDomainValue = minWeightData - 0.7
             let highDomainValue = maxWeightData + 0.7
             let newDomainRange = lowDomainValue...highDomainValue
@@ -68,11 +74,11 @@ class WeightDataHandler: ObservableObject {
         updateWeightToGoal(latestWeight: nil)
     }
     
-    func saveNewWeight(weight: String) {
+    func saveNewWeight(_ weight: String) {
         if let weight = Double(weight) {
             print("saving the weight")
             weightData.append(WeightData(date: Date().convertToString(), weight: weight))
-            setChartDomainRange()
+            setChartDomainRange(weightData)
             defaults.set(try! PropertyListEncoder().encode(weightData), forKey: "weightData")
             updateWeightToGoal(latestWeight: weight)
             //defaults.setValue(realData, forKey: "weightData")
@@ -93,25 +99,40 @@ class WeightDataHandler: ObservableObject {
         return defaults.object(forKey: "weightGoal") as? String ?? "0.0"
     }
     
-    func getLastMonthData() -> [WeightData] {
+    func getLastXMonthsData(numberOfMonths: Int) -> [WeightData] {
         
         var data = [WeightData]()
         let today = Date()
         
-        if let monthAgo = (Calendar.current.date(byAdding: .day, value: -30, to: today)) {
+        if let xMonthsAgo = (Calendar.current.date(byAdding: .day, value: (numberOfMonths * (-30)), to: today)) {
             var date = today
-            while date >= monthAgo {
-                print("date is \(date)")
+            while date >= xMonthsAgo {
+               // print("date is \(date)")
                 date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-                print("date string \(date.convertToString())")
+               // print("date string \(date.convertToString())")
                 if let weightData = weightData.first(where: { $0.date == date.convertToString() }) {
-                    print("my weight data is \(weightData)")
+                  //  print("my weight data is \(weightData)")
                     data.append(weightData)
                 }
             }
-            print("my new data array is: \(data)")
+          //  print("my new data array is: \(data)")
         }
+        print("showing \(numberOfMonths) month data.")
         return data
+    }
+    
+    func setDataForCustomDuration(_ from: Date, _ to: Date) {
+        
+        var toDate = to
+        var data = [WeightData]()
+        
+        while toDate >= from {
+            toDate = Calendar.current.date(byAdding: .day, value: -1, to: toDate)!
+            if let weightData = weightData.first(where: { $0.date == toDate.convertToString()}) {
+                data.append(weightData)
+            }
+        }
+        customDurationWeightData = data.reversed()
     }
     
 }

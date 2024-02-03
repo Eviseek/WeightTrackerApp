@@ -1,75 +1,21 @@
 //
-//  ChartView.swift
+//  LastThreeMonthsChartView.swift
 //  WeightTracker
 //
-//  Created by Eva Chlpikova on 27.01.2024.
+//  Created by Eva Chlpikova on 03.02.2024.
 //
 
 import SwiftUI
 import Charts
 
-struct ChartView: View {
-    
-    @ObservedObject var weightDataHandler: WeightDataHandler
-    @State private var rawSelectedDate: String? = nil
-    @State private var selectedTimeInterval = TimeInterval.month
-    
-    @State private var calendarSelectedDate: Date = Date()
-    
-    enum TimeInterval: String, CaseIterable, Identifiable {
-        case month = "Month"
-        case month3 = "3 Months"
-        case custom = "Custom"
-        
-        var id: Self { return self }
-    }
-    
-    var body: some View {
-        //vstack with graph
-        VStack() {
-            
-            Picker(selection: $selectedTimeInterval) {
-                ForEach(TimeInterval.allCases) { interval in
-                    Text(interval.rawValue)
-                }
-            } label: {
-                Text("Time Interval for chart")
-            }
-            .pickerStyle(.segmented)
-            .padding(.vertical, 10)
-            
-            Group {
-                switch selectedTimeInterval {
-                case .month:
-                    MonthChartView(weightDataHandler: weightDataHandler)
-                case .month3:
-                    LastThreeMonthsChartView(weightDataHandler: weightDataHandler)
-                case .custom:
-                    CustomDurationChartView(weightDataHandler: weightDataHandler)
-                }
-            }
-
-            
-
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.white)
-        .padding(.horizontal, 10)
-        .padding(.vertical, 50)
-    
-    }
-    
-
-}
-
-struct MonthChartView: View {
+struct LastThreeMonthsChartView: View {
     
     @ObservedObject var weightDataHandler: WeightDataHandler
     @State var rawSelectedDate: String?
     
     var selectedDateValue: String? {
         if let rawSelectedDate {
-            if let indexOfDate = weightDataHandler.weightData.firstIndex(where: { $0.date == rawSelectedDate }) {
+            if let indexOfDate = weightDataHandler.last3MonthWeightData.firstIndex(where: { $0.date == rawSelectedDate }) {
                 return String(weightDataHandler.weightData[indexOfDate].weight)
             }
         } else {
@@ -81,18 +27,18 @@ struct MonthChartView: View {
     var body: some View {
         
         Chart {
-            ForEach(weightDataHandler.lastMonthWeightData, id: \.date) { dataPoint in
+            ForEach(weightDataHandler.last3MonthWeightData, id: \.date) { dataPoint in
                 LineMark(
                     x: .value("Date", dataPoint.date),
                     y: .value("Weight", dataPoint.weight)
                 )
-                .foregroundStyle(.pink)
+                .foregroundStyle(.blue)
                 .lineStyle(.init(lineWidth: 2))
                 .interpolationMethod(.catmullRom)
                 .symbol {
                     ZStack {
                         Circle()
-                            .fill(.pink)
+                            .fill(.blue)
                             .frame(width: 8, height: 8)
                         Circle()
                             .fill(.white)
@@ -121,6 +67,7 @@ struct MonthChartView: View {
             }
         }
         .chartYScale(domain: weightDataHandler.chartDomainRange)
+       // .chartYScale(domain: 69...71)
         .aspectRatio(contentMode: .fit)
         .padding(.vertical, 20)
         .padding(.horizontal, 10)
@@ -146,11 +93,11 @@ struct MonthChartView: View {
             }
         }
     }
-    
 }
 
-struct ChartView_Previews: PreviewProvider {
+struct LastThreeMonthsChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(weightDataHandler: WeightDataHandler())
+        LastThreeMonthsChartView(weightDataHandler: WeightDataHandler())
     }
 }
+
