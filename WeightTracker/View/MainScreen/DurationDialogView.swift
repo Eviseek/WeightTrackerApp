@@ -8,11 +8,56 @@
 import SwiftUI
 
 struct DurationDialogView: View {
+    
+    private let title: String = "Choose the duration"
+    private let buttonTitle: String = "Done"
+    
+    @Binding var isActive: Bool
+    @State private var fromSelectedDate = Date()
+    @State private var toSelectedDate = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.black)
+                .opacity(0.5)
+                .onTapGesture {
+                    isActive = false
+                }
+            VStack {
+                Text(title)
+                    .font(.title2)
+                    .bold()
+                
+                Group {
+                    DatePicker("Starting date", selection: $fromSelectedDate, displayedComponents: .date)
+                    DatePicker("Ending date", selection: $toSelectedDate, displayedComponents: .date)
+                }
+                .padding(.horizontal, 10)
+
+                
+                Button {
+                    //TODO: do something
+                    isActive = false
+                } label: {
+                    Text("Done")
+                        .font(.title3)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .background(.thickMaterial)
+                .padding(.horizontal, 10)
+            }
+            .padding(.vertical, 20)
+            .padding(.horizontal, 10)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(radius: 30)
+            .padding(50)
+        }
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    DurationDialogView()
+    DurationDialogView(isActive: .constant(false))
 }

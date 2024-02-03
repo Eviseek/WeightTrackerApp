@@ -21,6 +21,7 @@
 		DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F942B65B20B000EDFC0 /* ChartView.swift */; };
 		DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */; };
 		DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */; };
+		DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		DDA76F942B65B20B000EDFC0 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
 		DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightView.swift; sourceTree = "<group>"; };
+		DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationDialogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */,
-				DDA76F8C2B65AED2000EDFC0 /* View */,
 				DDA76F8D2B65AEE4000EDFC0 /* Model */,
+				DDA76F8C2B65AED2000EDFC0 /* View */,
 			);
 			path = WeightTracker;
 			sourceTree = SOURCE_ROOT;
@@ -167,6 +169,7 @@
 				DDA76F942B65B20B000EDFC0 /* ChartView.swift */,
 				DD9595D42B6E473C00823659 /* LastThreeMonthsChartView.swift */,
 				DD9595D82B6E4E8200823659 /* CustomDurationChartView.swift */,
+				DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */,
 				DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */,
 				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
 				DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */,
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */,
 				DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */,
 				DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */,
 				DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */,
@@ -480,8 +484,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,8 +512,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -62,8 +62,6 @@ class WeightDataHandler: ObservableObject {
         
         if let weightGoal = Double(weightGoal) {
             let weightLeft = myLatestWeight - weightGoal
-            //            print("my latest weight \(myLatestWeight)")
-            //            print("my goal \(weightGoal)")
             weightToGoal = String(format: "%.2f", abs(weightLeft)) // absolute value to string
         }
     }
@@ -107,15 +105,11 @@ class WeightDataHandler: ObservableObject {
         if let xMonthsAgo = (Calendar.current.date(byAdding: .day, value: (numberOfMonths * (-30)), to: today)) {
             var date = today
             while date >= xMonthsAgo {
-               // print("date is \(date)")
                 date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-               // print("date string \(date.convertToString())")
                 if let weightData = weightData.first(where: { $0.date == date.convertToString() }) {
-                  //  print("my weight data is \(weightData)")
                     data.append(weightData)
                 }
             }
-          //  print("my new data array is: \(data)")
         }
         print("showing \(numberOfMonths) month data.")
         return data

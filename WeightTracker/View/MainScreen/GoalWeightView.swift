@@ -11,55 +11,66 @@ struct GoalWeightView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var goal = ""
+    @State private var weight = 60
+    @State private var offset: CGFloat = 1000
     
+    @Binding var isActive: Bool
     @ObservedObject var weightDataHandler: WeightDataHandler
     
     var body: some View {
-        VStack {
+        ZStack {
             
+            Color(.black)
+                .opacity(0.5)
+                .onTapGesture {
+                    isActive = false
+                }
             
-            Text("Set up your goal")
-                .font(.title)
-                .padding(.top, 50)
-            
-            HStack {
-                
-                TextField("", text: $goal, prompt: Text("60.0"))
-                    .padding(.vertical, 10)
-                    .overlay(
-                        RoundedRectangle(
-                            cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 1.5))
-                    .padding(.horizontal, 10)
-                    .multilineTextAlignment(.center)
+            VStack {
+                Text("Your weight goal")
                     .font(.title3)
-                    .keyboardType(.decimalPad)
+                    .bold()
                 
-                Spacer()
+                HStack {
+                    Picker("Goal", selection: $weight) {
+                        ForEach(50...100, id: \.self) { number in
+                            Text("\(number)")
+                        }
+                    }
+                 
+                    Text("in kilograms")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
+                .padding(.vertical, 15)
+                .padding(.horizontal, 10)
                 
                 Button {
-                    weightDataHandler.saveNewGoal(goal: goal)
-                    dismiss()
+                    weightDataHandler.saveNewGoal(goal: weight.description)
+                    isActive = false
                 } label: {
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.green)
+                    Text("Done")
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
+                .background(.thinMaterial)
                 
             }
-            .padding(.horizontal, 10)
-
-            
-            Spacer()
-            
+            .padding()
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(radius: 30)
+            .padding(50)
         }
+        .ignoresSafeArea()
+        
     }
+    
 }
 
 struct GoalWeightView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalWeightView(weightDataHandler: WeightDataHandler())
+        GoalWeightView(isActive: .constant(false), weightDataHandler: WeightDataHandler())
     }
 }

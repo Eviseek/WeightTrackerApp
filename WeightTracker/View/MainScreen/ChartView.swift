@@ -17,17 +17,15 @@ struct ChartView: View {
     @State private var calendarSelectedDate: Date = Date()
     
     enum TimeInterval: String, CaseIterable, Identifiable {
-        case month = "Month"
-        case month3 = "3 Months"
+        case month = "Last month"
+        case month3 = "Last 3 months"
         case custom = "Custom"
         
         var id: Self { return self }
     }
     
     var body: some View {
-        //vstack with graph
         VStack() {
-            
             Picker(selection: $selectedTimeInterval) {
                 ForEach(TimeInterval.allCases) { interval in
                     Text(interval.rawValue)
@@ -41,21 +39,28 @@ struct ChartView: View {
             Group {
                 switch selectedTimeInterval {
                 case .month:
+                    Text("3.2.2024 to 2.1.2024")
+                        .font(.caption)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 5)
+                        .foregroundStyle(.gray)
                     MonthChartView(weightDataHandler: weightDataHandler)
                 case .month3:
+                    Text("3.2.2024 to 2.1.2024")
+                        .font(.caption)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 5)
+                        .foregroundStyle(.gray)
                     LastThreeMonthsChartView(weightDataHandler: weightDataHandler)
                 case .custom:
                     CustomDurationChartView(weightDataHandler: weightDataHandler)
                 }
             }
 
-            
-
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.white)
         .padding(.horizontal, 10)
-        .padding(.vertical, 50)
     
     }
     
@@ -79,7 +84,6 @@ struct MonthChartView: View {
     }
     
     var body: some View {
-        
         Chart {
             ForEach(weightDataHandler.lastMonthWeightData, id: \.date) { dataPoint in
                 LineMark(
@@ -124,7 +128,6 @@ struct MonthChartView: View {
         .aspectRatio(contentMode: .fit)
         .padding(.vertical, 20)
         .padding(.horizontal, 10)
-        
     }
     
     @ViewBuilder

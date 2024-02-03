@@ -15,6 +15,8 @@ struct CustomDurationChartView: View {
     @State private var fromSelectedDate = Date() //TODO: make it yesterday
     @State private var toSelectedDate = Date()
     
+    @State private var isActive = false
+    
     var selectedDateValue: String? {
         if let rawSelectedDate {
             if let indexOfDate = weightDataHandler.customDurationWeightData.firstIndex(where: { $0.date == rawSelectedDate }) {
@@ -27,65 +29,68 @@ struct CustomDurationChartView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack{
-                DatePicker("", selection: $fromSelectedDate, displayedComponents: .date)
-                DatePicker("", selection: $toSelectedDate, displayedComponents: .date)
-                Spacer()
+        ZStack {
+            VStack {
+                
                 Button {
-                    weightDataHandler.setDataForCustomDuration(fromSelectedDate, toSelectedDate)
+                    isActive = true
                 } label: {
-                    Text("Save")
+                    Text("Click to select duration")
+                        .font(.caption)
+                        .foregroundStyle(.pink)
                 }
-            }
-            .transformEffect(.init(scaleX: 0.8, y: 0.8))
-            .frame(maxWidth: .infinity)
-            
-            Chart {
-                ForEach(weightDataHandler.customDurationWeightData, id: \.date) { dataPoint in
-                    LineMark(
-                        x: .value("Date", dataPoint.date),
-                        y: .value("Weight", dataPoint.weight)
-                    )
-                    .foregroundStyle(.green)
-                    .lineStyle(.init(lineWidth: 2))
-                    .interpolationMethod(.catmullRom)
-                    .symbol {
-                        ZStack {
-                            Circle()
-                                .fill(.green)
-                                .frame(width: 8, height: 8)
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 4, height: 4)
+                
+                Chart {
+                    ForEach(weightDataHandler.customDurationWeightData, id: \.date) { dataPoint in
+                        LineMark(
+                            x: .value("Date", dataPoint.date),
+                            y: .value("Weight", dataPoint.weight)
+                        )
+                        .foregroundStyle(.green)
+                        .lineStyle(.init(lineWidth: 2))
+                        .interpolationMethod(.catmullRom)
+                        .symbol {
+                            ZStack {
+                                Circle()
+                                    .fill(.green)
+                                    .frame(width: 8, height: 8)
+                                Circle()
+                                    .fill(.white)
+                                    .frame(width: 4, height: 4)
+                            }
                         }
                     }
+                    if let rawSelectedDate {
+                        RuleMark(x: .value("Date", rawSelectedDate))
+                            .foregroundStyle(.black)
+                            .offset(yStart: -10)
+                            .zIndex(5)
+                            .lineStyle(StrokeStyle(lineWidth: 0.5, dash: [5]))
+                            .annotation(position: .trailing, alignment: .leading, spacing: 10, overflowResolution: .init(x: .fit(to: .chart), y: .disabled)) {
+                                selectionPopover
+                            }
+                    }
                 }
-                if let rawSelectedDate {
-                    RuleMark(x: .value("Date", rawSelectedDate))
-                        .foregroundStyle(.black)
-                        .offset(yStart: -10)
-                        .zIndex(5)
-                        .lineStyle(StrokeStyle(lineWidth: 0.5, dash: [5]))
-                        .annotation(position: .trailing, alignment: .leading, spacing: 10, overflowResolution: .init(x: .fit(to: .chart), y: .disabled)) {
-                            selectionPopover
-                        }
+                .chartXSelection(value: $rawSelectedDate)
+                .chartYAxis {
+                    AxisMarks(preset: .extended, position: .leading)
                 }
-            }
-            .chartXSelection(value: $rawSelectedDate)
-            .chartYAxis {
-                AxisMarks(preset: .extended, position: .leading)
-            }
-            .chartXAxis {
-                AxisMarks { _ in
-                    AxisGridLine().foregroundStyle(Color(.systemGray3))
+                .chartXAxis {
+                    AxisMarks { _ in
+                        AxisGridLine().foregroundStyle(Color(.systemGray3))
+                    }
                 }
+                .chartYScale(domain: weightDataHandler.chartDomainRange)
+               // .chartYScale(domain: 69...71)
+                .aspectRatio(contentMode: .fit)
+              //  .padding(.vertical, 20)
+                .padding(.horizontal, 10)
+                
             }
-            .chartYScale(domain: weightDataHandler.chartDomainRange)
-           // .chartYScale(domain: 69...71)
-            .aspectRatio(contentMode: .fit)
-            .padding(.vertical, 20)
-            .padding(.horizontal, 10)
+            
+            if isActive {
+                DurationDialogView(isActive: $isActive)
+            }
             
         }
     }

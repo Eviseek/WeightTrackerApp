@@ -10,30 +10,40 @@ import Charts
 
 struct ContentView: View {
     
-   // @State private var toggleCheckButton = false
-    
+    @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
     
     @StateObject private var weightDataHandler = WeightDataHandler()
     
-    enum Field: Hashable {
-        case myField
-    }
+    @State private var isGoalDialogActive = false
+    @State private var isDurationDialogActive = false //TODO: pass this between views
     
-    @FocusState private var focusedField: Field?
-    
-    private var maxMinHelper: Double = 0.5
+  //  private var maxMinHelper: Double = 0.5
     
     var body: some View {
         //Vstack
-        VStack(spacing: -10) {
-            WeightInputView(weightDataHandler: weightDataHandler)
+        ZStack {
+            VStack(spacing: 10) {
+                Spacer()
+                WeightInputView(weightDataHandler: weightDataHandler)
+                
+                ChartView(weightDataHandler: weightDataHandler)
+                
+                WeightGoalView(weightDataHandler: weightDataHandler, isGoalDialogActive: $isGoalDialogActive)
+                Spacer()
+            }
+            //.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemGray6))
             
-            ChartView(weightDataHandler: weightDataHandler)
+            if isGoalDialogActive {
+                GoalWeightView(isActive: $isGoalDialogActive, weightDataHandler: weightDataHandler)
+            }
             
-            WeightGoalView(weightDataHandler: weightDataHandler)
+            if isDurationDialogActive {
+                DurationDialogView(isActive: $isDurationDialogActive)
+            }
+            
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.systemGray6))
     }
 }
 
@@ -84,11 +94,11 @@ struct WeightInputView: View {
 struct WeightGoalView: View {
     
     @ObservedObject var weightDataHandler: WeightDataHandler
-    @State private var showingSheet = false
+    @Binding var isGoalDialogActive: Bool
     
     var body: some View {
         Button {
-            showingSheet.toggle()
+            isGoalDialogActive.toggle()
         } label: {
             VStack {
                 Text("Goal")
@@ -109,9 +119,6 @@ struct WeightGoalView: View {
                         .font(.caption)
                 }
             }
-            .sheet(isPresented: $showingSheet, content: {
-                GoalWeightView(weightDataHandler: weightDataHandler)
-            })
             .foregroundColor(.black)
             .padding(.vertical, 5)
             .frame(maxWidth: .infinity)
@@ -127,5 +134,8 @@ struct WeightGoalView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 15 Pro")
+        
     }
+    
 }
