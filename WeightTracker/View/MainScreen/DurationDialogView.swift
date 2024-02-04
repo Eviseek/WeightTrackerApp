@@ -13,6 +13,8 @@ struct DurationDialogView: View {
     private let buttonTitle: String = "Done"
     
     @Binding var isActive: Bool
+    @EnvironmentObject var weightDataHandler: WeightDataHandler
+    
     @State private var fromSelectedDate = Date()
     @State private var toSelectedDate = Date()
     
@@ -36,7 +38,8 @@ struct DurationDialogView: View {
 
                 
                 Button {
-                    //TODO: do something
+                    print("button clicked")
+                    weightDataHandler.saveCustomDuration(from: fromSelectedDate, to: toSelectedDate)
                     isActive = false
                 } label: {
                     Text("Done")

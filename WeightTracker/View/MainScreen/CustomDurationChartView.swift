@@ -10,17 +10,16 @@ import Charts
 
 struct CustomDurationChartView: View {
     
-    @ObservedObject var weightDataHandler: WeightDataHandler
-    @State var rawSelectedDate: String?
-    @State private var fromSelectedDate = Date() //TODO: make it yesterday
-    @State private var toSelectedDate = Date()
+   // @ObservedObject var weightDataHandler: WeightDataHandler
+    @EnvironmentObject var weightDataHandler: WeightDataHandler
+    @Binding var isDurationDialogActive: Bool
     
-    @State private var isActive = false
+    @State var rawSelectedDate: String?
     
     var selectedDateValue: String? {
         if let rawSelectedDate {
             if let indexOfDate = weightDataHandler.customDurationWeightData.firstIndex(where: { $0.date == rawSelectedDate }) {
-                return String(weightDataHandler.weightData[indexOfDate].weight)
+                return String(weightDataHandler.customDurationWeightData[indexOfDate].weight)
             }
         } else {
             return nil
@@ -29,15 +28,36 @@ struct CustomDurationChartView: View {
     }
     
     var body: some View {
-        ZStack {
             VStack {
-                
-                Button {
-                    isActive = true
-                } label: {
-                    Text("Click to select duration")
-                        .font(.caption)
-                        .foregroundStyle(.pink)
+                if let fromDuration = weightDataHandler.fromDateCustomDuration, let toDuration = weightDataHandler.toDateCustomDuration {
+                    HStack(spacing: 4) {
+                        Text("\(fromDuration)")
+                        Text("to")
+                        Text("\(toDuration)")
+                        Button {
+                            //TODO:
+                            isDurationDialogActive = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                                .foregroundStyle(.blue)
+                                .padding(.leading, 8)
+                        }
+                    }
+                    .font(.caption)
+                    .foregroundStyle(.gray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 10)
+                    .padding(.bottom, 10)
+                } else {
+                    Button {
+                        isDurationDialogActive = true
+                    } label: {
+                        Text("Click to select duration")
+                            .font(.caption)
+                            .foregroundStyle(.pink)
+                    }
                 }
                 
                 Chart {
@@ -87,12 +107,6 @@ struct CustomDurationChartView: View {
                 .padding(.horizontal, 10)
                 
             }
-            
-            if isActive {
-                DurationDialogView(isActive: $isActive)
-            }
-            
-        }
     }
     
     @ViewBuilder
@@ -118,5 +132,5 @@ struct CustomDurationChartView: View {
 }
 
 #Preview {
-    CustomDurationChartView(weightDataHandler: WeightDataHandler())
+    CustomDurationChartView(isDurationDialogActive: .constant(false)).environmentObject(WeightDataHandler())
 }

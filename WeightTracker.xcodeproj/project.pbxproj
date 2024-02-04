@@ -22,6 +22,7 @@
 		DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */; };
 		DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */; };
 		DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */; };
+		DDEE82992B702B0C00414F96 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEE82982B702B0C00414F96 /* ChartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
 		DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightView.swift; sourceTree = "<group>"; };
 		DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationDialogView.swift; sourceTree = "<group>"; };
+		DDEE82982B702B0C00414F96 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */,
 				DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */,
 				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
+				DDEE82982B702B0C00414F96 /* ChartViewModel.swift */,
 				DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */,
 			);
 			name = MainScreen;
@@ -310,6 +313,7 @@
 			files = (
 				DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */,
 				DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */,
+				DDEE82992B702B0C00414F96 /* ChartViewModel.swift in Sources */,
 				DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */,
 				DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */,
 				DD9595D52B6E473C00823659 /* LastThreeMonthsChartView.swift in Sources */,

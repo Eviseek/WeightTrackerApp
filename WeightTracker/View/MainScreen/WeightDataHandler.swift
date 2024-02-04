@@ -22,14 +22,18 @@ class WeightDataHandler: ObservableObject {
     @Published var last3MonthWeightData = [WeightData]()
     @Published var customDurationWeightData = [WeightData]()
     
+    @Published var toDateCustomDuration: String? = nil
+    @Published var fromDateCustomDuration: String? = nil
+    
     init() {
+        setUpCustomDuration()
+        
         lastMonthWeightData = getLastXMonthsData(numberOfMonths: 1).reversed()
         last3MonthWeightData = getLastXMonthsData(numberOfMonths: 3).reversed()
         // defaults.removeObject(forKey: "weightData")
         // weightData = getWeightData()
         weightGoal = getWeightGoal()
         updateWeightToGoal(latestWeight: nil)
-        setChartDomainRange(weightData)
     }
     
     private var minWeightData: Double? {
@@ -40,14 +44,30 @@ class WeightDataHandler: ObservableObject {
         weightData.min {$0.weight > $1.weight}?.weight
     }
     
-    private func setChartDomainRange(_ weightData: [WeightData]) {
+    private func setChartDomainRange(_ myWeightData: [WeightData]) {
         
-        if let minWeightData = weightData.max(by: {$0.weight > $1.weight})?.weight, let maxWeightData = weightData.min(by: {$0.weight > $1.weight})?.weight {
-            let lowDomainValue = minWeightData - 0.7
-            let highDomainValue = maxWeightData + 0.7
-            let newDomainRange = lowDomainValue...highDomainValue
-            chartDomainRange = newDomainRange
-        }
+        //show minimum of 4 values
+        //stride for 4 values = 0,7
+        //stride for 5 values = 0,7
+        //stride for more values = 1
+        
+//        if let minWeightData = myWeightData.max(by: {$0.weight > $1.weight})?.weight, let maxWeightData = myWeightData.min(by: {$0.weight > $1.weight})?.weight {
+//            
+//            let upperBound = Int(minWeightData)
+//            let lowerBound = Int(maxWeightData)
+//            var newDomainRange = lowerBound...upperBound
+//            
+//            if newDomainRange.count > 3 {
+//                chartDomainRange = (Double(newDomainRange.lowerBound) - 0.3)...(Double(newDomainRange.upperBound) + 0.3)
+//            } else {
+//                let difference: Double = (Double(newDomainRange.count) / 2)
+//                var upperBound = Double(upperBound) + difference
+//                var lowerBound = Double(lowerBound) - difference
+//                chartDomainRange = lowerBound...upperBound
+//                
+//            }
+//        }
+        
     }
     
     private func updateWeightToGoal(latestWeight: Double?) {
@@ -64,15 +84,19 @@ class WeightDataHandler: ObservableObject {
             let weightLeft = myLatestWeight - weightGoal
             weightToGoal = String(format: "%.2f", abs(weightLeft)) // absolute value to string
         }
+        
     }
     
     func saveNewGoal(goal: String) {
+        
         weightGoal = goal
         defaults.set(goal, forKey: "weightGoal")
         updateWeightToGoal(latestWeight: nil)
+        
     }
     
     func saveNewWeight(_ weight: String) {
+        
         if let weight = Double(weight) {
             print("saving the weight")
             weightData.append(WeightData(date: Date().convertToString(), weight: weight))
@@ -81,9 +105,11 @@ class WeightDataHandler: ObservableObject {
             updateWeightToGoal(latestWeight: weight)
             //defaults.setValue(realData, forKey: "weightData")
         }
+        
     }
     
     private func getWeightData() -> [WeightData] {
+        
         if let storedData: Data = defaults.object(forKey: "weightData") as? Data {
             print("stored data decoded")
             let weightData = (try? PropertyListDecoder().decode([WeightData].self, from: storedData)) ?? [WeightData]()
@@ -95,6 +121,7 @@ class WeightDataHandler: ObservableObject {
     
     private func getWeightGoal() -> String {
         return defaults.object(forKey: "weightGoal") as? String ?? "0.0"
+        
     }
     
     func getLastXMonthsData(numberOfMonths: Int) -> [WeightData] {
@@ -113,9 +140,42 @@ class WeightDataHandler: ObservableObject {
         }
         print("showing \(numberOfMonths) month data.")
         return data
+        
     }
     
-    func setDataForCustomDuration(_ from: Date, _ to: Date) {
+    func saveCustomDuration(from: Date, to: Date) {
+        
+        print("setting the custom duration")
+        setDataForCustomDuration(from, to)
+        
+        let fromDateString = from.convertToString()
+        let toDateString = to.convertToString()
+        
+        defaults.setValue(fromDateString, forKey: "fromDuration")
+        defaults.setValue(toDateString, forKey: "toDuration")
+        
+        fromDateCustomDuration = fromDateString
+        toDateCustomDuration = toDateString
+        
+    }
+    
+    private func setUpCustomDuration() {
+        
+        print("getting the custom duration")
+        
+        fromDateCustomDuration = defaults.value(forKey: "fromDuration") as? String ?? nil
+        toDateCustomDuration = defaults.value(forKey: "toDuration") as? String ?? nil
+        
+        print("!!!! from \(fromDateCustomDuration)")
+        print("!!! to \(toDateCustomDuration)")
+        
+        if let from = fromDateCustomDuration?.convertToDate(), let to = toDateCustomDuration?.convertToDate() {
+            setDataForCustomDuration(from, to)
+        }
+        
+    }
+    
+    private func setDataForCustomDuration(_ from: Date, _ to: Date) {
         
         var toDate = to
         var data = [WeightData]()
@@ -127,6 +187,7 @@ class WeightDataHandler: ObservableObject {
             }
         }
         customDurationWeightData = data.reversed()
+        
     }
     
 }

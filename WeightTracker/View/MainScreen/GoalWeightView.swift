@@ -15,7 +15,8 @@ struct GoalWeightView: View {
     @State private var offset: CGFloat = 1000
     
     @Binding var isActive: Bool
-    @ObservedObject var weightDataHandler: WeightDataHandler
+   // @ObservedObject var weightDataHandler: WeightDataHandler
+    @EnvironmentObject var weightDataHandler: WeightDataHandler
     
     var body: some View {
         ZStack {
@@ -71,6 +72,6 @@ struct GoalWeightView: View {
 
 struct GoalWeightView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalWeightView(isActive: .constant(false), weightDataHandler: WeightDataHandler())
+        GoalWeightView(isActive: .constant(false))
     }
 }

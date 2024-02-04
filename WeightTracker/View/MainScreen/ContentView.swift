@@ -5,6 +5,9 @@
 //  Created by Eva Chlpikova on 27.01.2024.
 //
 
+//TODO: fix/imporove dimension algorithm
+//TODO: check if goal algorithm works okay
+
 import SwiftUI
 import Charts
 
@@ -16,41 +19,39 @@ struct ContentView: View {
     @StateObject private var weightDataHandler = WeightDataHandler()
     
     @State private var isGoalDialogActive = false
-    @State private var isDurationDialogActive = false //TODO: pass this between views
-    
-  //  private var maxMinHelper: Double = 0.5
+    @State private var isDurationDialogActive = false
     
     var body: some View {
         //Vstack
         ZStack {
             VStack(spacing: 10) {
                 Spacer()
-                WeightInputView(weightDataHandler: weightDataHandler)
+                WeightInputView()
                 
-                ChartView(weightDataHandler: weightDataHandler)
+                ChartView(isDurationDialogActive: $isDurationDialogActive)
                 
-                WeightGoalView(weightDataHandler: weightDataHandler, isGoalDialogActive: $isGoalDialogActive)
+                WeightGoalView(isGoalDialogActive: $isGoalDialogActive)
                 Spacer()
             }
-            //.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.systemGray6))
             
             if isGoalDialogActive {
-                GoalWeightView(isActive: $isGoalDialogActive, weightDataHandler: weightDataHandler)
+                GoalWeightView(isActive: $isGoalDialogActive)
             }
             
             if isDurationDialogActive {
                 DurationDialogView(isActive: $isDurationDialogActive)
             }
-            
         }
+        .environmentObject(weightDataHandler)
     }
 }
 
 
 struct WeightInputView: View {
     
-    @ObservedObject var weightDataHandler: WeightDataHandler
+   // @ObservedObject var weightDataHandler: WeightDataHandler
+    @EnvironmentObject var weightDataHandler: WeightDataHandler
     @State private var weight = ""
     
     var body: some View {
@@ -93,7 +94,8 @@ struct WeightInputView: View {
 
 struct WeightGoalView: View {
     
-    @ObservedObject var weightDataHandler: WeightDataHandler
+   // @ObservedObject var weightDataHandler: WeightDataHandler
+    @EnvironmentObject var weightDataHandler: WeightDataHandler
     @Binding var isGoalDialogActive: Bool
     
     var body: some View {
