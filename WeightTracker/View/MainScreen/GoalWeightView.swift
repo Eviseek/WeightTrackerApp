@@ -15,7 +15,6 @@ struct GoalWeightView: View {
     @State private var offset: CGFloat = 1000
     
     @Binding var isActive: Bool
-   // @ObservedObject var weightDataHandler: WeightDataHandler
     @EnvironmentObject var weightDataHandler: WeightDataHandler
     
     var body: some View {
@@ -65,7 +64,6 @@ struct GoalWeightView: View {
             .padding(50)
         }
         .ignoresSafeArea()
-        
     }
     
 }

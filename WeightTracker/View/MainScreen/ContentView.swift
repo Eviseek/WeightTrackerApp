@@ -5,8 +5,8 @@
 //  Created by Eva Chlpikova on 27.01.2024.
 //
 
-//TODO: fix/imporove dimension algorithm
-//TODO: check if goal algorithm works okay
+
+//TODO:
 
 import SwiftUI
 import Charts
@@ -50,7 +50,6 @@ struct ContentView: View {
 
 struct WeightInputView: View {
     
-   // @ObservedObject var weightDataHandler: WeightDataHandler
     @EnvironmentObject var weightDataHandler: WeightDataHandler
     @State private var weight = ""
     
@@ -94,7 +93,6 @@ struct WeightInputView: View {
 
 struct WeightGoalView: View {
     
-   // @ObservedObject var weightDataHandler: WeightDataHandler
     @EnvironmentObject var weightDataHandler: WeightDataHandler
     @Binding var isGoalDialogActive: Bool
     

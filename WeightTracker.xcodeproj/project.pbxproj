@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0073D82B79342B00986697 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0073D72B79342B00986697 /* ChartData.swift */; };
 		DD9595D52B6E473C00823659 /* LastThreeMonthsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9595D42B6E473C00823659 /* LastThreeMonthsChartView.swift */; };
 		DD9595D92B6E4E8200823659 /* CustomDurationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9595D82B6E4E8200823659 /* CustomDurationChartView.swift */; };
 		DDA76F602B657F65000EDFC0 /* WeightTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */; };
@@ -22,7 +23,6 @@
 		DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */; };
 		DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */; };
 		DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */; };
-		DDEE82992B702B0C00414F96 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEE82982B702B0C00414F96 /* ChartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD0073D72B79342B00986697 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		DD9595D42B6E473C00823659 /* LastThreeMonthsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastThreeMonthsChartView.swift; sourceTree = "<group>"; };
 		DD9595D82B6E4E8200823659 /* CustomDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationChartView.swift; sourceTree = "<group>"; };
 		DDA76F5C2B657F65000EDFC0 /* WeightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +62,6 @@
 		DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHandler.swift; sourceTree = "<group>"; };
 		DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightView.swift; sourceTree = "<group>"; };
 		DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationDialogView.swift; sourceTree = "<group>"; };
-		DDEE82982B702B0C00414F96 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA76F892B65ADA0000EDFC0 /* WeightData.swift */,
+				DD0073D72B79342B00986697 /* ChartData.swift */,
 			);
 			name = Model;
 			path = WeightTracker/Model;
@@ -174,7 +175,6 @@
 				DDE3110D2B6EC0F000880460 /* DurationDialogView.swift */,
 				DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */,
 				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
-				DDEE82982B702B0C00414F96 /* ChartViewModel.swift */,
 				DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */,
 			);
 			name = MainScreen;
@@ -313,7 +313,6 @@
 			files = (
 				DDE3110E2B6EC0F000880460 /* DurationDialogView.swift in Sources */,
 				DDA76F972B66BE45000EDFC0 /* DateFormatterHandler.swift in Sources */,
-				DDEE82992B702B0C00414F96 /* ChartViewModel.swift in Sources */,
 				DDA76F992B66DA1C000EDFC0 /* GoalWeightView.swift in Sources */,
 				DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */,
 				DD9595D52B6E473C00823659 /* LastThreeMonthsChartView.swift in Sources */,
@@ -321,6 +320,7 @@
 				DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */,
 				DD9595D92B6E4E8200823659 /* CustomDurationChartView.swift in Sources */,
 				DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */,
+				DD0073D82B79342B00986697 /* ChartData.swift in Sources */,
 				DDA76F602B657F65000EDFC0 /* WeightTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

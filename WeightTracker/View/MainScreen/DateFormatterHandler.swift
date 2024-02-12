@@ -13,7 +13,6 @@ class DateFormatterHandler {
         
         Date.myFormatter.dateFormat = "d.M.yyyy"
         return Date.myFormatter.string(from: date)
-        
     }
     
     func convertStrToDate(string: String) -> Date {
@@ -21,7 +20,6 @@ class DateFormatterHandler {
         if let date = Date.myFormatter.date(from: string) {
             return date
         }
-        
         return Date()
     }
     
@@ -30,12 +28,14 @@ class DateFormatterHandler {
 extension Date {
     
    static var myFormatter: DateFormatter = {
+       
        let formatter = DateFormatter()
        formatter.dateStyle = .short
        return formatter
    }()
     
     func convertToString() -> String {
+        
         Date.myFormatter.dateFormat = "d.M.yyyy"
         return Date.myFormatter.string(from: self)
     }
@@ -45,6 +45,7 @@ extension Date {
 extension String {
     
     func convertToDate() -> Date {
+        
         if let date = Date.myFormatter.date(from: self) {
             return date
         }
