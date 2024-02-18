@@ -6,15 +6,17 @@
 //
 
 
-//TODO:
+//TODO: export data to health app
 
 import SwiftUI
 import Charts
 
 struct ContentView: View {
     
-    @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
-    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
+//    @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
+//    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
+    
+    @EnvironmentObject var healthManager: HealthManager
     
     @StateObject private var weightDataHandler = WeightDataHandler()
     
@@ -31,6 +33,9 @@ struct ContentView: View {
                 ChartView(isDurationDialogActive: $isDurationDialogActive)
                 
                 WeightGoalView(isGoalDialogActive: $isGoalDialogActive)
+                
+                HealthAppSyncView()
+                
                 Spacer()
             }
             .background(Color(.systemGray6))
@@ -51,6 +56,7 @@ struct ContentView: View {
 struct WeightInputView: View {
     
     @EnvironmentObject var weightDataHandler: WeightDataHandler
+    @EnvironmentObject var healthManager: HealthManager
     @State private var weight = ""
     
     var body: some View {
@@ -72,7 +78,7 @@ struct WeightInputView: View {
             
             if weight.count > 0 {
                 Button {
-                    weightDataHandler.saveNewWeight(weight)
+                    weightDataHandler.saveNewWeight(weight, withHealth: healthManager)
                     weight = ""
                 } label: {
                     Image(systemName: "checkmark.circle.fill")
@@ -125,8 +131,67 @@ struct WeightGoalView: View {
             .background(.white)
             .padding(.horizontal, 10)
         }
-        
+        .accessibilityIdentifier("goalView")
     }
+    
+}
+
+struct HealthAppSyncView: View {
+    
+    //@State private var shouldSyncWithHealth = false
+    @State private var inProgress = false
+    @EnvironmentObject var healthManager: HealthManager
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "heart.text.square")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 25, height: 100)
+            Text("Synchronize with Health")
+                .font(.system(size: 14))
+                .bold()
+                .frame(width: 200, alignment: .leading)
+            Spacer()
+
+            if healthManager.shouldSync && !healthManager.isAuthorized {
+                    Button {
+                        inProgress = true
+                        Task {
+                            await healthManager.askForAuthorization()
+                        }
+                    } label: {
+                        if !inProgress {
+                            Text("Set up")
+                        } else {
+                            LoadingView()
+                                .padding(.trailing, 15)
+                        }
+                    }
+                    .font(.system(size: 15))
+                    .foregroundStyle(.blue)
+            } else {
+                Toggle("", isOn: $healthManager.shouldSync)
+                    .tint(.blue)
+            }
+            
+
+        }
+        .padding(.top, -15)
+        .padding(.bottom, -15)
+        .padding(.horizontal, 15)
+        .foregroundColor(.black)
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .padding(.horizontal, 10)
+    }
+    
+    
+//    func askHealthManagerForAuth() -> some View {
+//        healthManager.askForAuthorization()
+//        return Text("")
+//    }
+    
     
 }
 
@@ -134,8 +199,8 @@ struct WeightGoalView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(HealthManager())
             .previewDevice("iPhone 15 Pro")
-        
     }
     
 }

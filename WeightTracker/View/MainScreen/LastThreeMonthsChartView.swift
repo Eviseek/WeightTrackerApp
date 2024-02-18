@@ -10,7 +10,6 @@ import Charts
 
 struct LastThreeMonthsChartView: View {
     
-    //@ObservedObject var weightDataHandler: WeightDataHandler
     @EnvironmentObject var weightDataHandler: WeightDataHandler
     @State var rawSelectedDate: String?
     

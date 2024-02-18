@@ -30,6 +30,7 @@ struct GoalWeightView: View {
                 Text("Your weight goal")
                     .font(.title3)
                     .bold()
+                    .accessibilityIdentifier("GoalDialogTitle")
                 
                 HStack {
                     Picker("Goal", selection: $weight) {
@@ -51,6 +52,7 @@ struct GoalWeightView: View {
                 } label: {
                     Text("Done")
                 }
+                .accessibilityIdentifier("GoalDialogDoneButton")
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 10)

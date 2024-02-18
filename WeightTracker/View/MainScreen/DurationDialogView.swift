@@ -45,6 +45,7 @@ struct DurationDialogView: View {
                     Text("Done")
                         .font(.title3)
                 }
+                .accessibilityIdentifier("CustomDurationDoneButton")
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
                 .background(.thickMaterial)

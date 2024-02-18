@@ -36,7 +36,6 @@ struct ChartView: View {
                 Text("Time Interval for chart")
             }
             .pickerStyle(.segmented)
-         //   .padding(.vertical, 100)
             .padding(.top, 10)
             .padding(.horizontal, 10)
             
@@ -102,6 +101,7 @@ struct MonthChartView: View {
                             .frame(width: 13, height: 13)
                             .foregroundStyle(.blue)
                             .padding(.leading, 5)
+                            .accessibilityIdentifier("MonthChartInfoButton")
                     }
                     .popover(isPresented: $showPopover, attachmentAnchor: .point(.center)) {
                         Text("Wondering why the date is not the whole month? That's because we count only the days, in the last month, that you actually entered your weight.")
@@ -127,6 +127,7 @@ struct MonthChartView: View {
                         .resizable()
                         .frame(width: 100, height: 100)
                     Text("This chart has no data.")
+                        .accessibilityLabel("MonthChartNoDataText")
                         .font(.subheadline)
                         .bold()
                         .padding(.top, 5)

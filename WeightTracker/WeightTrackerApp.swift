@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct WeightTrackerApp: App {
+    
+    @StateObject var healthManager = HealthManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(healthManager)
         }
     }
 }

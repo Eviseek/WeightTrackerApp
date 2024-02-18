@@ -9,14 +9,16 @@ import Foundation
 
 class WeightDataHandler: ObservableObject {
     
+   // private let healthManager = HealthManager()
+    
     private let defaults = UserDefaults.standard
     private let dateFormatterHandler = DateFormatterHandler()
-    var weightData = WeightData.TEST_DATA
+    //var weightData = WeightData.TEST_DATA
     
-    //@Published var weightData = [WeightData]()
+    @Published var weightData = [WeightData]()
     @Published var weightGoal = "0.0"
     @Published var weightToGoal = "0.0"
-    @Published var selectedWeight = "0.0"
+  //  @Published var selectedWeight = "0.0"
 
     @Published var customDurationWeightData = [WeightData]()
     @Published var customDurationChartData = ChartData()
@@ -33,7 +35,7 @@ class WeightDataHandler: ObservableObject {
     
     init() {
     
-      //  weightData = getWeightData()
+        weightData = getWeightData()
         
         updateCharts()
         
@@ -56,19 +58,21 @@ class WeightDataHandler: ObservableObject {
     
     // MARK: Weight functionality
     
-    func saveNewWeight(_ weight: String) {
+    func saveNewWeight(_ weight: String, withHealth healthManager: HealthManager) {
         
         if let weight = Double(weight) {
             print("saving the weight \(weight)")
             
             if weightData.count > 0 && weightData[weightData.count-1].date == Date().convertToString() { //if user already saved today's weight, delete it and save the new one (one date = one weight)
+                print("!!!!!!! same date, removing last item")
                 weightData.remove(at: weightData.count-1)
             }
             
             weightData.append(WeightData(date: Date().convertToString(), weight: weight))
-            defaults.set(try! PropertyListEncoder().encode(weightData), forKey: "weightData")
+            defaults.set(try? PropertyListEncoder().encode(weightData), forKey: "weightData")
+            healthManager.saveNewData(weight: Double(weight))
             updateWeightToGoal(latestWeight: weight)
-            print("weight data \(weightData)")
+       //     print("weight data \(weightData)")
             updateCharts()
         }
     }
@@ -81,8 +85,6 @@ class WeightDataHandler: ObservableObject {
         }
         return [WeightData]()
     }
-    
-
     
     func getLastXMonthsData(numberOfMonths: Int) -> [WeightData] {
         
@@ -109,7 +111,7 @@ class WeightDataHandler: ObservableObject {
         
         if latestWeight == nil {
             if weightData.count > 0 {
-                myLatestWeight = weightData[weightData.count-1].weight
+                myLatestWeight = weightData[weightData.count-1].weight //assign as the latest weight, the last saved one
             }
         } else {
             myLatestWeight = latestWeight!
@@ -122,10 +124,11 @@ class WeightDataHandler: ObservableObject {
     }
     
     func saveNewGoal(goal: String) {
-        
-        weightGoal = goal
-        defaults.set(goal, forKey: "weightGoal")
-        updateWeightToGoal(latestWeight: nil)
+        if let _ = Double(goal) {
+            weightGoal = goal
+            defaults.set(goal, forKey: "weightGoal")
+            updateWeightToGoal(latestWeight: nil)
+        }
     }
     
     private func getWeightGoal() -> String {

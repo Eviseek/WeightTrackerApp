@@ -8,15 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		DD0073D82B79342B00986697 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0073D72B79342B00986697 /* ChartData.swift */; };
+		DD2206B32B7FFD45002FD181 /* WeightTracker_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206B22B7FFD45002FD181 /* WeightTracker_Tests.swift */; };
+		DD2206BA2B7FFDFF002FD181 /* WeightDataHandler_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206B92B7FFDFF002FD181 /* WeightDataHandler_Tests.swift */; };
+		DD2206BC2B800397002FD181 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206BB2B800397002FD181 /* HealthManager.swift */; };
+		DD2206BF2B8103D4002FD181 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206BE2B8103D4002FD181 /* LoadingView.swift */; };
+		DD2206C12B8116C2002FD181 /* HealthManager_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206C02B8116C2002FD181 /* HealthManager_Tests.swift */; };
+		DD2206C32B814AA8002FD181 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206C22B814AA8002FD181 /* Extensions.swift */; };
+		DD2206CB2B814D23002FD181 /* WeightTracker_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206CA2B814D23002FD181 /* WeightTracker_UITests.swift */; };
+		DD2206CD2B814D23002FD181 /* WeightTracker_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206CC2B814D23002FD181 /* WeightTracker_UITestsLaunchTests.swift */; };
+		DD2206D62B814DF8002FD181 /* ContentView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206D52B814DF8002FD181 /* ContentView_UITests.swift */; };
+		DD2206D82B8155C0002FD181 /* CustomDurationChart_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206D72B8155C0002FD181 /* CustomDurationChart_UITests.swift */; };
+		DD2206DA2B822E67002FD181 /* ChartView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2206D92B822E67002FD181 /* ChartView_UITests.swift */; };
 		DD9595D52B6E473C00823659 /* LastThreeMonthsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9595D42B6E473C00823659 /* LastThreeMonthsChartView.swift */; };
 		DD9595D92B6E4E8200823659 /* CustomDurationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9595D82B6E4E8200823659 /* CustomDurationChartView.swift */; };
 		DDA76F602B657F65000EDFC0 /* WeightTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */; };
 		DDA76F622B657F65000EDFC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F612B657F65000EDFC0 /* ContentView.swift */; };
 		DDA76F642B657F67000EDFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA76F632B657F67000EDFC0 /* Assets.xcassets */; };
 		DDA76F672B657F67000EDFC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA76F662B657F67000EDFC0 /* Preview Assets.xcassets */; };
-		DDA76F712B657F67000EDFC0 /* WeightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F702B657F67000EDFC0 /* WeightTrackerTests.swift */; };
-		DDA76F7B2B657F67000EDFC0 /* WeightTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F7A2B657F67000EDFC0 /* WeightTrackerUITests.swift */; };
-		DDA76F7D2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F7C2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift */; };
 		DDA76F8A2B65ADA0000EDFC0 /* WeightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F892B65ADA0000EDFC0 /* WeightData.swift */; };
 		DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */; };
 		DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA76F942B65B20B000EDFC0 /* ChartView.swift */; };
@@ -26,14 +34,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DDA76F6D2B657F67000EDFC0 /* PBXContainerItemProxy */ = {
+		DD2206B42B7FFD45002FD181 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDA76F542B657F65000EDFC0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DDA76F5B2B657F65000EDFC0;
 			remoteInfo = WeightTracker;
 		};
-		DDA76F772B657F67000EDFC0 /* PBXContainerItemProxy */ = {
+		DD2206CE2B814D23002FD181 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDA76F542B657F65000EDFC0 /* Project object */;
 			proxyType = 1;
@@ -44,6 +52,20 @@
 
 /* Begin PBXFileReference section */
 		DD0073D72B79342B00986697 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		DD2206B02B7FFD45002FD181 /* WeightTracker_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTracker_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2206B22B7FFD45002FD181 /* WeightTracker_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTracker_Tests.swift; sourceTree = "<group>"; };
+		DD2206B92B7FFDFF002FD181 /* WeightDataHandler_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDataHandler_Tests.swift; sourceTree = "<group>"; };
+		DD2206BB2B800397002FD181 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		DD2206BD2B80058C002FD181 /* WeightTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeightTracker.entitlements; sourceTree = "<group>"; };
+		DD2206BE2B8103D4002FD181 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DD2206C02B8116C2002FD181 /* HealthManager_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager_Tests.swift; sourceTree = "<group>"; };
+		DD2206C22B814AA8002FD181 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DD2206C82B814D23002FD181 /* WeightTracker_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTracker_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2206CA2B814D23002FD181 /* WeightTracker_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTracker_UITests.swift; sourceTree = "<group>"; };
+		DD2206CC2B814D23002FD181 /* WeightTracker_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTracker_UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DD2206D52B814DF8002FD181 /* ContentView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_UITests.swift; sourceTree = "<group>"; };
+		DD2206D72B8155C0002FD181 /* CustomDurationChart_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationChart_UITests.swift; sourceTree = "<group>"; };
+		DD2206D92B822E67002FD181 /* ChartView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView_UITests.swift; sourceTree = "<group>"; };
 		DD9595D42B6E473C00823659 /* LastThreeMonthsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastThreeMonthsChartView.swift; sourceTree = "<group>"; };
 		DD9595D82B6E4E8200823659 /* CustomDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationChartView.swift; sourceTree = "<group>"; };
 		DDA76F5C2B657F65000EDFC0 /* WeightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,11 +73,6 @@
 		DDA76F612B657F65000EDFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = WeightTracker/View/MainScreen/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F632B657F67000EDFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDA76F662B657F67000EDFC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DDA76F6C2B657F67000EDFC0 /* WeightTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDA76F702B657F67000EDFC0 /* WeightTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerTests.swift; sourceTree = "<group>"; };
-		DDA76F762B657F67000EDFC0 /* WeightTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDA76F7A2B657F67000EDFC0 /* WeightTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITests.swift; sourceTree = "<group>"; };
-		DDA76F7C2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DDA76F892B65ADA0000EDFC0 /* WeightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightData.swift; path = WeightTracker/Model/WeightData.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightDataHandler.swift; path = WeightTracker/View/MainScreen/WeightDataHandler.swift; sourceTree = SOURCE_ROOT; };
 		DDA76F942B65B20B000EDFC0 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -65,21 +82,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD2206AD2B7FFD45002FD181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD2206C52B814D23002FD181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA76F592B657F65000EDFC0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDA76F692B657F67000EDFC0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDA76F732B657F67000EDFC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,14 +106,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2206B12B7FFD45002FD181 /* WeightTracker_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DD2206B22B7FFD45002FD181 /* WeightTracker_Tests.swift */,
+				DD2206B92B7FFDFF002FD181 /* WeightDataHandler_Tests.swift */,
+				DD2206C02B8116C2002FD181 /* HealthManager_Tests.swift */,
+			);
+			path = WeightTracker_Tests;
+			sourceTree = "<group>";
+		};
+		DD2206C92B814D23002FD181 /* WeightTracker_UITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD2206CA2B814D23002FD181 /* WeightTracker_UITests.swift */,
+				DD2206CC2B814D23002FD181 /* WeightTracker_UITestsLaunchTests.swift */,
+				DD2206D52B814DF8002FD181 /* ContentView_UITests.swift */,
+				DD2206D92B822E67002FD181 /* ChartView_UITests.swift */,
+				DD2206D72B8155C0002FD181 /* CustomDurationChart_UITests.swift */,
+			);
+			path = WeightTracker_UITests;
+			sourceTree = "<group>";
+		};
 		DDA76F532B657F65000EDFC0 = {
 			isa = PBXGroup;
 			children = (
 				DDA76F5E2B657F65000EDFC0 /* WeightTracker */,
 				DDA76F632B657F67000EDFC0 /* Assets.xcassets */,
 				DDA76F652B657F67000EDFC0 /* Preview Content */,
-				DDA76F6F2B657F67000EDFC0 /* WeightTrackerTests */,
-				DDA76F792B657F67000EDFC0 /* WeightTrackerUITests */,
+				DD2206B12B7FFD45002FD181 /* WeightTracker_Tests */,
+				DD2206C92B814D23002FD181 /* WeightTracker_UITests */,
 				DDA76F5D2B657F65000EDFC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA76F5C2B657F65000EDFC0 /* WeightTracker.app */,
-				DDA76F6C2B657F67000EDFC0 /* WeightTrackerTests.xctest */,
-				DDA76F762B657F67000EDFC0 /* WeightTrackerUITests.xctest */,
+				DD2206B02B7FFD45002FD181 /* WeightTracker_Tests.xctest */,
+				DD2206C82B814D23002FD181 /* WeightTracker_UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +153,7 @@
 		DDA76F5E2B657F65000EDFC0 /* WeightTracker */ = {
 			isa = PBXGroup;
 			children = (
+				DD2206BD2B80058C002FD181 /* WeightTracker.entitlements */,
 				DDA76F5F2B657F65000EDFC0 /* WeightTrackerApp.swift */,
 				DDA76F8D2B65AEE4000EDFC0 /* Model */,
 				DDA76F8C2B65AED2000EDFC0 /* View */,
@@ -127,23 +167,6 @@
 				DDA76F662B657F67000EDFC0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		DDA76F6F2B657F67000EDFC0 /* WeightTrackerTests */ = {
-			isa = PBXGroup;
-			children = (
-				DDA76F702B657F67000EDFC0 /* WeightTrackerTests.swift */,
-			);
-			path = WeightTrackerTests;
-			sourceTree = "<group>";
-		};
-		DDA76F792B657F67000EDFC0 /* WeightTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DDA76F7A2B657F67000EDFC0 /* WeightTrackerUITests.swift */,
-				DDA76F7C2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift */,
-			);
-			path = WeightTrackerUITests;
 			sourceTree = "<group>";
 		};
 		DDA76F8C2B65AED2000EDFC0 /* View */ = {
@@ -176,6 +199,9 @@
 				DDA76F982B66DA1C000EDFC0 /* GoalWeightView.swift */,
 				DDA76F8E2B65AF14000EDFC0 /* WeightDataHandler.swift */,
 				DDA76F962B66BE45000EDFC0 /* DateFormatterHandler.swift */,
+				DD2206BB2B800397002FD181 /* HealthManager.swift */,
+				DD2206BE2B8103D4002FD181 /* LoadingView.swift */,
+				DD2206C22B814AA8002FD181 /* Extensions.swift */,
 			);
 			name = MainScreen;
 			path = WeightTracker/View/MainScreen;
@@ -184,6 +210,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DD2206AF2B7FFD45002FD181 /* WeightTracker_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD2206B62B7FFD45002FD181 /* Build configuration list for PBXNativeTarget "WeightTracker_Tests" */;
+			buildPhases = (
+				DD2206AC2B7FFD45002FD181 /* Sources */,
+				DD2206AD2B7FFD45002FD181 /* Frameworks */,
+				DD2206AE2B7FFD45002FD181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD2206B52B7FFD45002FD181 /* PBXTargetDependency */,
+			);
+			name = WeightTracker_Tests;
+			productName = WeightTracker_Tests;
+			productReference = DD2206B02B7FFD45002FD181 /* WeightTracker_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD2206C72B814D23002FD181 /* WeightTracker_UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD2206D02B814D23002FD181 /* Build configuration list for PBXNativeTarget "WeightTracker_UITests" */;
+			buildPhases = (
+				DD2206C42B814D23002FD181 /* Sources */,
+				DD2206C52B814D23002FD181 /* Frameworks */,
+				DD2206C62B814D23002FD181 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD2206CF2B814D23002FD181 /* PBXTargetDependency */,
+			);
+			name = WeightTracker_UITests;
+			productName = WeightTracker_UITests;
+			productReference = DD2206C82B814D23002FD181 /* WeightTracker_UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		DDA76F5B2B657F65000EDFC0 /* WeightTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDA76F802B657F67000EDFC0 /* Build configuration list for PBXNativeTarget "WeightTracker" */;
@@ -201,42 +263,6 @@
 			productReference = DDA76F5C2B657F65000EDFC0 /* WeightTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DDA76F6B2B657F67000EDFC0 /* WeightTrackerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DDA76F832B657F67000EDFC0 /* Build configuration list for PBXNativeTarget "WeightTrackerTests" */;
-			buildPhases = (
-				DDA76F682B657F67000EDFC0 /* Sources */,
-				DDA76F692B657F67000EDFC0 /* Frameworks */,
-				DDA76F6A2B657F67000EDFC0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DDA76F6E2B657F67000EDFC0 /* PBXTargetDependency */,
-			);
-			name = WeightTrackerTests;
-			productName = WeightTrackerTests;
-			productReference = DDA76F6C2B657F67000EDFC0 /* WeightTrackerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DDA76F752B657F67000EDFC0 /* WeightTrackerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DDA76F862B657F67000EDFC0 /* Build configuration list for PBXNativeTarget "WeightTrackerUITests" */;
-			buildPhases = (
-				DDA76F722B657F67000EDFC0 /* Sources */,
-				DDA76F732B657F67000EDFC0 /* Frameworks */,
-				DDA76F742B657F67000EDFC0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DDA76F782B657F67000EDFC0 /* PBXTargetDependency */,
-			);
-			name = WeightTrackerUITests;
-			productName = WeightTrackerUITests;
-			productReference = DDA76F762B657F67000EDFC0 /* WeightTrackerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,19 +270,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					DD2206AF2B7FFD45002FD181 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DDA76F5B2B657F65000EDFC0;
+					};
+					DD2206C72B814D23002FD181 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DDA76F5B2B657F65000EDFC0;
+					};
 					DDA76F5B2B657F65000EDFC0 = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					DDA76F6B2B657F67000EDFC0 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = DDA76F5B2B657F65000EDFC0;
-					};
-					DDA76F752B657F67000EDFC0 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = DDA76F5B2B657F65000EDFC0;
 					};
 				};
 			};
@@ -274,13 +300,27 @@
 			projectRoot = "";
 			targets = (
 				DDA76F5B2B657F65000EDFC0 /* WeightTracker */,
-				DDA76F6B2B657F67000EDFC0 /* WeightTrackerTests */,
-				DDA76F752B657F67000EDFC0 /* WeightTrackerUITests */,
+				DD2206AF2B7FFD45002FD181 /* WeightTracker_Tests */,
+				DD2206C72B814D23002FD181 /* WeightTracker_UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD2206AE2B7FFD45002FD181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD2206C62B814D23002FD181 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA76F5A2B657F65000EDFC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,23 +330,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDA76F6A2B657F67000EDFC0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDA76F742B657F67000EDFC0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD2206AC2B7FFD45002FD181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD2206BA2B7FFDFF002FD181 /* WeightDataHandler_Tests.swift in Sources */,
+				DD2206C12B8116C2002FD181 /* HealthManager_Tests.swift in Sources */,
+				DD2206B32B7FFD45002FD181 /* WeightTracker_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD2206C42B814D23002FD181 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD2206D62B814DF8002FD181 /* ContentView_UITests.swift in Sources */,
+				DD2206D82B8155C0002FD181 /* CustomDurationChart_UITests.swift in Sources */,
+				DD2206DA2B822E67002FD181 /* ChartView_UITests.swift in Sources */,
+				DD2206CB2B814D23002FD181 /* WeightTracker_UITests.swift in Sources */,
+				DD2206CD2B814D23002FD181 /* WeightTracker_UITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA76F582B657F65000EDFC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,46 +366,120 @@
 				DD9595D52B6E473C00823659 /* LastThreeMonthsChartView.swift in Sources */,
 				DDA76F622B657F65000EDFC0 /* ContentView.swift in Sources */,
 				DDA76F8F2B65AF14000EDFC0 /* WeightDataHandler.swift in Sources */,
+				DD2206BC2B800397002FD181 /* HealthManager.swift in Sources */,
 				DD9595D92B6E4E8200823659 /* CustomDurationChartView.swift in Sources */,
 				DDA76F952B65B20B000EDFC0 /* ChartView.swift in Sources */,
 				DD0073D82B79342B00986697 /* ChartData.swift in Sources */,
+				DD2206BF2B8103D4002FD181 /* LoadingView.swift in Sources */,
 				DDA76F602B657F65000EDFC0 /* WeightTrackerApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDA76F682B657F67000EDFC0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DDA76F712B657F67000EDFC0 /* WeightTrackerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDA76F722B657F67000EDFC0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DDA76F7B2B657F67000EDFC0 /* WeightTrackerUITests.swift in Sources */,
-				DDA76F7D2B657F67000EDFC0 /* WeightTrackerUITestsLaunchTests.swift in Sources */,
+				DD2206C32B814AA8002FD181 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DDA76F6E2B657F67000EDFC0 /* PBXTargetDependency */ = {
+		DD2206B52B7FFD45002FD181 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DDA76F5B2B657F65000EDFC0 /* WeightTracker */;
-			targetProxy = DDA76F6D2B657F67000EDFC0 /* PBXContainerItemProxy */;
+			targetProxy = DD2206B42B7FFD45002FD181 /* PBXContainerItemProxy */;
 		};
-		DDA76F782B657F67000EDFC0 /* PBXTargetDependency */ = {
+		DD2206CF2B814D23002FD181 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DDA76F5B2B657F65000EDFC0 /* WeightTracker */;
-			targetProxy = DDA76F772B657F67000EDFC0 /* PBXContainerItemProxy */;
+			targetProxy = DD2206CE2B814D23002FD181 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		DD2206B72B7FFD45002FD181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X55V6FTF2T;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eviseek.WeightTracker-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTracker";
+			};
+			name = Debug;
+		};
+		DD2206B82B7FFD45002FD181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X55V6FTF2T;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eviseek.WeightTracker-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTracker";
+			};
+			name = Release;
+		};
+		DD2206D12B814D23002FD181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X55V6FTF2T;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eviseek.WeightTracker-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WeightTracker;
+			};
+			name = Debug;
+		};
+		DD2206D22B814D23002FD181 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X55V6FTF2T;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eviseek.WeightTracker-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WeightTracker;
+			};
+			name = Release;
+		};
 		DDA76F7E2B657F67000EDFC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,12 +601,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeightTracker/WeightTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = X55V6FTF2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Please allow us to synchronize the weight with the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -507,12 +631,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeightTracker/WeightTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = X55V6FTF2T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Please allow us to synchronize the weight with the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -530,85 +656,27 @@
 			};
 			name = Release;
 		};
-		DDA76F842B657F67000EDFC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X55V6FTF2T;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eviseek.WeightTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTracker";
-			};
-			name = Debug;
-		};
-		DDA76F852B657F67000EDFC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X55V6FTF2T;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eviseek.WeightTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeightTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeightTracker";
-			};
-			name = Release;
-		};
-		DDA76F872B657F67000EDFC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X55V6FTF2T;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eviseek.WeightTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WeightTracker;
-			};
-			name = Debug;
-		};
-		DDA76F882B657F67000EDFC0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X55V6FTF2T;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eviseek.WeightTrackerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WeightTracker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD2206B62B7FFD45002FD181 /* Build configuration list for PBXNativeTarget "WeightTracker_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2206B72B7FFD45002FD181 /* Debug */,
+				DD2206B82B7FFD45002FD181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD2206D02B814D23002FD181 /* Build configuration list for PBXNativeTarget "WeightTracker_UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2206D12B814D23002FD181 /* Debug */,
+				DD2206D22B814D23002FD181 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDA76F572B657F65000EDFC0 /* Build configuration list for PBXProject "WeightTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -623,24 +691,6 @@
 			buildConfigurations = (
 				DDA76F812B657F67000EDFC0 /* Debug */,
 				DDA76F822B657F67000EDFC0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DDA76F832B657F67000EDFC0 /* Build configuration list for PBXNativeTarget "WeightTrackerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DDA76F842B657F67000EDFC0 /* Debug */,
-				DDA76F852B657F67000EDFC0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DDA76F862B657F67000EDFC0 /* Build configuration list for PBXNativeTarget "WeightTrackerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DDA76F872B657F67000EDFC0 /* Debug */,
-				DDA76F882B657F67000EDFC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

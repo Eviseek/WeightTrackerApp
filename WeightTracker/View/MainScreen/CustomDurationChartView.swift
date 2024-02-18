@@ -20,6 +20,7 @@ struct CustomDurationChartView: View {
                     Text("\(fromDuration)")
                     Text("to")
                     Text("\(toDuration)")
+                        .accessibilityIdentifier("DurationText")
                     Button {
                         isDurationDialogActive = true
                     } label: {
@@ -29,6 +30,7 @@ struct CustomDurationChartView: View {
                             .foregroundStyle(.blue)
                             .padding(.leading, 8)
                     }
+                    .accessibilityIdentifier("CustomDurationUpdateDurationButton")
                 }
                 .font(.caption)
                 .foregroundStyle(.gray)
@@ -65,6 +67,7 @@ struct CustomDurationChartView: View {
                         .font(.caption)
                         .foregroundStyle(.pink)
                 }
+                .accessibilityIdentifier("SelectDurationButton")
                 Spacer()
             }
         }
